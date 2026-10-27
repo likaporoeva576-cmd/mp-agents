@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Схема системы</title>
+<style>
+body { margin: 0; background: #eef1f6; font-family: Arial, Helvetica, sans-serif; color: #1d2433; }
+.wrap { width: 1200px; padding: 28px; box-sizing: border-box; }
+h1 { font-size: 24px; margin: 0 0 4px; color: #1F3864; }
+.sub { color: #7a8394; font-size: 14px; margin-bottom: 20px; }
+.flow { display: flex; align-items: center; gap: 0; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.arrow { font-size: 26px; color: #8a96ad; padding: 0 8px; }
+.card { box-sizing: border-box; background: #fff; border-radius: 12px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,.07); font-size: 13px; line-height: 1.4; border-top: 4px solid #C7CEDB; }
+.card b { display: block; font-size: 15px; color: #1F3864; margin-bottom: 4px; }
+.src { width: 170px; border-top-color: #8e44ad; }
+.etl { width: 150px; border-top-color: #7a8394; }
+.mod { width: 230px; }
+.mod.l { border-top-color: #2E75B6; } .mod.a { border-top-color: #E0A64B; } .mod.p { border-top-color: #1e8449; }
+.ai { width: 170px; border-top-color: #c0392b; }
+.out { width: 150px; border-top-color: #1F3864; }
+.links { margin-top: 22px; display: flex; gap: 12px; }
+.link { flex: 1; background: #fff; border-radius: 12px; padding: 11px 14px; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,.06); border-left: 4px solid #2E75B6; }
+.link b { color: #1F3864; }
+.back { margin-top: 14px; background: #FFF6E5; border-left: 4px solid #E0A64B; border-radius: 8px; padding: 10px 14px; font-size: 13.5px; }
+</style></head><body><div class="wrap">
+<h1>Как устроена система</h1>
+<div class="sub">Данные из кабинетов → правила по трём направлениям → ИИ объясняет → менеджер решает</div>
+
+<div class="flow">
+  <div class="col">
+    <div class="card src"><b>Wildberries API</b>остатки, заказы, воронка, реклама, цены, отзывы</div>
+    <div class="card src"><b>Ozon API</b>Seller API и Performance API (реклама)</div>
+  </div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="card etl"><b>Сбор данных</b>раз в час, по каждому артикулу за день</div></div>
+  <div class="arrow">→</div>
+  <div class="col">
+    <div class="card mod l"><b>Логистика</b>дни запаса, объём поставки, риск платного хранения</div>
+    <div class="card mod a"><b>Продвижение</b>ДРР, воронка, CTR, рейтинг, поисковые запросы</div>
+    <div class="card mod p"><b>Цены</b>мин. цена от себестоимости, акции, конкуренты</div>
+  </div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="card ai"><b>ИИ-агент</b>что случилось, почему, что сделать, кому. Разбор отзывов и запросов</div></div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="card out"><b>Отчёт в 9:00</b>Телеграм + таблица по артикулам</div></div>
+</div>
+
+<div class="links">
+  <div class="link"><b>Нет товара</b> → реклама останавливается, бюджет не горит</div>
+  <div class="link"><b>Мало товара</b> → цену за конкурентом не снижаем, поднимаем до поставки</div>
+  <div class="link"><b>Рейтинг просел</b> → рекламу в карточку не ведём, разбираем отзывы</div>
+  <div class="link"><b>Акция или демпинг</b> → ниже минимальной цены не опускаемся</div>
+</div>
+
+<div class="back"><b>Решение за человеком.</b> Менеджер утверждает ставки, цены и поставки. Агент сам деньги не тратит, изменения уходят в кабинеты после «да».</div>
+</div></body></html>

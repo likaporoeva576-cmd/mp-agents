@@ -21,6 +21,10 @@ python3 -m mp demo        # прогон на демо-данных, отчёт 
 
 ## Схема
 
+![Схема системы](demo/scheme.png)
+
+Та же схема в техническом виде:
+
 ```mermaid
 flowchart LR
   subgraph API["API площадок"]
