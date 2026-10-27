@@ -28,10 +28,12 @@ def load(name):
 
 
 def demo():
+    stocks = load("stocks.csv")
+    days = logistics.stock_days(stocks, CFG["logistics"])
     blocks = {
-        "Логистика": logistics.check(load("stocks.csv"), CFG["logistics"]),
+        "Логистика": logistics.check(stocks, CFG["logistics"]),
         "Продвижение": ads.check(load("ads.csv"), CFG["ads"]),
-        "Цены": pricing.check(load("prices.csv"), CFG["pricing"]),
+        "Цены": pricing.check(load("prices.csv"), CFG["pricing"], days),
     }
     lines = ["# Ежедневный отчёт (демо-данные)", ""]
     for title, signals in blocks.items():

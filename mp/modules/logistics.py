@@ -1,6 +1,15 @@
 """Логистика: дни запаса, объём поставки, риск платного хранения."""
 
 
+def stock_days(rows, cfg):
+    """Дни запаса по артикулу — нужны модулю цен."""
+    res = {}
+    for r in rows:
+        daily = r["sales_14d"] / cfg["sales_window_days"]
+        res[r["sku"]] = r["stock"] / daily if daily else float("inf")
+    return res
+
+
 def check(rows, cfg):
     out = []
     for r in rows:

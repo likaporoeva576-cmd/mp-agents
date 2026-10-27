@@ -1,5 +1,5 @@
-sku,price,cost,logistics,commission
-CREAM-HAND-75,189,62,38,0.25
-SHAMPOO-400,249,95,55,0.25
-MASK-HAIR-250,299,80,50,0.25
-GEL-SHOWER-500,229,70,48,0.25
+sku,price,cost,logistics,commission,promo_price,competitor_price
+CREAM-HAND-75,239,62,38,0.25,0,219
+SHAMPOO-400,249,95,55,0.25,199,0
+MASK-HAIR-250,399,80,50,0.25,0,0
+GEL-SHOWER-500,279,70,48,0.25,229,239
